@@ -1,13 +1,13 @@
 # UniHub 🎓
 
-O **UniHub** é um ecossistema digital desenvolvido para centralizar e otimizar as interações socioeconômicas no campus universitário da UNIFESP. O projeto mitiga a fragmentação de informações (dispersas em grupos de WhatsApp e Facebook) através de uma plataforma unificada de alta disponibilidade, dividida em três pilares: comércio de alimentos, revenda de materiais acadêmicos e impacto social.
+O **UniHub** é um ecossistema digital desenvolvido para centralizar e otimizar as interações socioeconômicas no campus universitário da UNIFESP. O projeto mitiga a fragmentação de informações (dispersas em grupos de WhatsApp) através de uma plataforma unificada de alta disponibilidade, dividida em três pilares: comércio de alimentos, revenda de materiais acadêmicos e impacto social.
 
 ---
 
 ## 🚀 Módulos do Sistema
 
 *   🍔 **Alimentação:** Painel em tempo real para vendedores gerenciarem seus estoques e para alunos realizarem reservas, evitando filas e incertezas durante o intervalo.
-*   📚 **Bazar Acadêmico:** Marketplace focado na compra e venda segura de materiais universitários (livros, calculadoras, equipamentos de laboratório e EPIs).
+*   📚 **Bazar Acadêmico:** Marketplace focado na compra e venda segura de materiais universitários, como livros, calculadoras e equipamentos de laboratório.
 *   🤝 **Ação Solidária:** Módulo dedicado ao apoio social, conectando alunos em vulnerabilidade socioeconômica a voluntários, operando sob rigoroso sigilo de identidade.
 
 ---
@@ -16,7 +16,7 @@ O **UniHub** é um ecossistema digital desenvolvido para centralizar e otimizar 
 
 O sistema foi desenhado com foco em resiliência, escalabilidade horizontal e segurança de dados, utilizando as seguintes tecnologias:
 
-*   **Frontend:** React.js com TypeScript (Single Page Application).
+*   **Frontend:** React.js com JavaScript (Single Page Application).
 *   **Backend:** API RESTful em C# (.NET Core).
 *   **Banco de Dados:** Relacional (SQL Server / PostgreSQL) acessado via Entity Framework Core.
 *   **Infraestrutura (Cloud):** AWS (Instâncias EC2 para a aplicação e RDS para o banco de dados).
