@@ -59,4 +59,4 @@ O projeto foi desenvolvido em ciclos ágeis (6 Sprints) por uma equipe técnica 
 
 1. **Clone o repositório:**
    ```bash
-   git clone [https://github.com/seu-usuario/unihub.git](https://github.com/seu-usuario/unihub.git)
+   git clone https://github.com/UniHub-University/Eng.-Software.git
