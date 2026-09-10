@@ -28,7 +28,6 @@ public class Vendedor
             throw new ArgumentNullException(nameof(produto));
         }
             
-
         ProdutosPublicados.Add(produto);
     }
 
