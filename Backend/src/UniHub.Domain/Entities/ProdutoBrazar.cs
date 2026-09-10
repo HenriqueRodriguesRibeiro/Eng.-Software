@@ -2,22 +2,22 @@ using System;
 
 namespace UniHub.Domain.Entities;
 
-public class ProdutoBazar
+/// Representa um item a venda no Bazar Academico (livros, calculadoras,
+/// equipamentos usados). Os dados basicos (Id, Nome, Descricao, Preco,
+/// VendedorId, DataPublicacao, Status) vem herdados de Produto.
+public class ProdutoBazar : Produto
 {
-    // Identificador único alinhado com o padrão Guid do time
-    public Guid Id { get; set; } = Guid.NewGuid();
+    // categoria do item, ex: Livros, Calculadoras, Equipamentos de Laboratorio
+    public string Categoria { get; set; } = string.Empty;
 
-    // Informações do item do Bazar
-    public string Titulo { get; set; } = string.Empty;
-    public string Descricao { get; set; } = string.Empty;
-    public decimal Preco { get; set; }
-    public string Categoria { get; set; } = string.Empty; // Ex: Livros, Jalecos, Calculadoras
-    public bool Disponivel { get; set; } = true;
-    public DateTime DataPublicacao { get; set; } = DateTime.UtcNow;
+    // estado de conservacao do item, ex: Novo, Seminovo, Usado
+    public string Condicao { get; set; } = string.Empty;
 
-    // Chave estrangeira ligando ao Vendedor da equipe
-    public Guid VendedorId { get; set; }
+    // quantidade disponivel deste item (um vendedor pode ter mais de uma unidade)
+    public int Quant { get; set; } = 1;
 
-    // Propriedade de navegação do Entity Framework Core
-    public Vendedor? Vendedor { get; set; }
+    public override string GetTipo()
+    {
+        return "ProdutoBazar";
+    }
 }
