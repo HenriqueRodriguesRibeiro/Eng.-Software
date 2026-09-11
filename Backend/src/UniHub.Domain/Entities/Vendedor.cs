@@ -5,7 +5,7 @@ namespace UniHub.Domain.Entities;
 
 public class Vendedor
 {
-    public Guid Id {get; set; } = Guid.NewGuid();
+    public Guid Id { get; set; } = Guid.NewGuid();
 
     // chave estrangeira para o Usuario "dono" deste perfil de vendedor.
     // usando Guid para bater com o tipo de Usuario.Id.
@@ -16,18 +16,23 @@ public class Vendedor
 
     // private set, pois no diagrama esses dois campos so devem mudar atraves de ReceberAvaliacao(),
     // assim ninguem de fora da classe consegue "trapacear"
-    public decimal NotaMedia {get; private set; } = 0;
-    public int QtdAvaliacoes {get; private set; } = 0;
+    public decimal NotaMedia { get; private set; } = 0;
+    public int QtdAvaliacoes { get; private set; } = 0;
 
-    public List<Produto> ProdutosPublicados {get; set; } = new();
+    public List<Produto> ProdutosPublicados { get; set; } = new();
 
     // Adiciona um novo produto a lista de produtos publicados pelo vendedor.
-    public void DivulgarProduto (Produto produto)
+    // Tambem seta o VendedorId no produto, para o relacionamento ficar
+    // explicito dos dois lados (evita depender de shadow property do EF Core).
+    public void DivulgarProduto(Produto produto)
     {
-        if (produto is null){
+        if (produto is null)
+        {
             throw new ArgumentNullException(nameof(produto));
         }
-            
+
+        produto.VendedorId = this.Id;
+        produto.Vendedor = this;
         ProdutosPublicados.Add(produto);
     }
 
@@ -35,7 +40,8 @@ public class Vendedor
     /// a media (NotaMedia) e o total de avaliacoes (QtdAvaliacoes).
     public void ReceberAvaliacao(int nota)
     {
-        if (nota < 0 || nota > 5){
+        if (nota < 0 || nota > 5)
+        {
             throw new ArgumentOutOfRangeException(nameof(nota), "A nota deve ser entre 0 e 5.");
         }
 
