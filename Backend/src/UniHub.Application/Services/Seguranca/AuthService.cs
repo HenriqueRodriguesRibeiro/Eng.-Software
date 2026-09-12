@@ -10,7 +10,15 @@ namespace UniHub.Application.Services;
 
 public class AuthService
 {
+    // É a conexão com o banco de dados (Neon/Postgres, via Entity Framework).
+    // Sem ele, o AuthService não teria como consultar se um usuário já existe
+    // (_context.Usuarios.FirstOrDefaultAsync) nem salvar um novo usuário
+    // no primeiro acesso (_context.Usuarios.Add / SaveChangesAsync).
     private readonly AppDbContext _context;
+
+    // É o acesso às configurações do appsettings.json — em especial,
+    // a chave secreta usada para assinar o Token JWT (JwtSettings:SecureKey).
+    // Sem ele, o método que gera o token não teria de onde ler essa chave.
     private readonly IConfiguration _config;
 
     // O contexto do banco e a configuração (chaves do JWT) chegam via
